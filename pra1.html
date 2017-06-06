@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<title>Registration Form</title>
+  <link rel="stylesheet" type="text/css" href="bootstrap.css">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+<style type="text/css">
+  
+body {
+    background-image: url(bgs3.jpg) ;
+    background-repeat: no-repeat ;
+    background-size: 1360px 700px ; 
+ }
+
+label {
+     font-style: italic ;
+     color: #65F806 ;
+ }
+
+#selection {
+    font-style: italic ; 
+    color: #056C34 ; 
+    font-size: 15px ; 
+    text-align: center; 
+
+ }
+
+.form-control { 
+    color: #1C036F ; 
+    text-align: center; 
+ }
+.form-group { 
+    text-align: center; 
+ } 
+
+
+
+</style>
+
+</head>
+<body>
+
+<div class="container">
+  <h1 style=" text-align: center; text-shadow: 1px 1px #B0ACAB ; padding: 10px 5px 50px ; color: #098BCD "><i>Register Here</i></h1>
+  <form class="form-horizontal" name="shaastra" >
+
+    <div class="form-group">
+      <label class="control-label col-sm-2" >Select Event :</label>
+      <select  id="selection">
+            <option value="">Select any Event</option>
+            <option value="1">Panache show</option>
+            <option value="2">Fastest Fingers</option>
+            <option value="3">Offline Photography</option>  
+            <option value="4">Short Film Making</option>  
+            <option value="5">Decibels</option>
+            <option value="6">Election</option>  
+      </select>
+    </div>
+
+    <div class="form-group">
+         <label class="control-label col-sm-2" >First Name:</label>
+          <div class="col-sm-6">
+            <input type="text" class="form-control" id="fn" placeholder="Your Firstname Please" name="fname" onchange="fname_fun('fn')" ><p id="a1"></p>
+          </div>
+   </div>
+
+   	<div class="form-group">
+        <label class="control-label col-sm-2" >Last Name:</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" id="ln" placeholder="Your Lastname Please" name="lname" onchange="lname_fun('ln')"><p id="b1"></p>
+        </div>
+   </div>
+
+    <div class="form-group">
+      <label class="control-label col-sm-2" >Email:</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control"  placeholder="Enter email" id="em" name="eml" onchange="email_fun('em')"><p id="c1"></p>
+        </div>
+    </div>
+   
+   <div class="form-group">
+       <label class="control-label col-sm-2" >Contact Number:</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" id="pn"  placeholder="Your Contact Details Please" name="phno" maxlength="10" onchange="phone_fun('pn')"><p id="d1"></p>
+        </div>
+   </div>
+
+    
+
+
+    <div class="form-horizontal">        
+        <div class="col-sm-offset-2 col-sm-10">
+           <label><input type="checkbox" id="checkbox" >Agree</label>
+          <button  class="btn btn-default" onclick="submitting_fn()" >Submit</button> 
+          <button type="reset" value="Reset" class="btn btn-default" onclick="resetting_fn()">Reset</button>
+          <button  class="btn btn-danger" href="‪C:\Users\family\Desktop\html\sar2.html" >Answer for Q.2</button>
+
+        </div>
+   </div>
+
+  </form>
+</div>
+
+
+<script type="text/javascript">
+  
+
+
+function fname_fun(argument) {
+      x1=document.forms["shaastra"]["fname"].value;
+      y1=document.getElementById("a1");
+
+       if(x1 == "" )
+    {
+        y1.innerHTML="Firstname must be provided";
+        document.forms["shaastra"]["fname"].style.borderColor="red";
+        y1.style.color="red";
+        alert("Firstname must be provided") ;
+        i++ ; 
+    }
+    else
+    {
+     reset_fn('a1' , 'fname') ;
+     }
+}
+
+
+function lname_fun(argument) {
+    x2=document.forms["shaastra"]["lname"].value;
+        y2=document.getElementById("b1");
+
+ if(x2 == "" )
+    {
+        y2.innerHTML="Lastname must be provided";
+        document.forms["shaastra"]["lname"].style.borderColor="red";
+        y2.style.color="red";
+        alert("Lastname must be provided") ;
+        i++;
+    }
+else
+    {
+     reset_fn('b1' , 'lname') ;
+     }    
+
+}
+
+
+function phone_fun(argument) {
+
+      x3=document.forms["shaastra"]["phno"].value;
+          y3=document.getElementById("d1");
+
+    if(x3 == "")
+    {
+        y3.innerHTML="Phone number cannot be empty";
+        document.forms["shaastra"]["phno"].style.borderColor="red";
+        y3.style.color="red";
+        alert("Phone number cannot be empty") ;
+        i++;
+    }
+
+    else if(isNaN(x3))
+    {
+        y3.innerHTML="Phone number must contain only numbers";
+        document.forms["shaastra"]["phno"].style.borderColor="red";
+        y3.style.color="red";
+        alert("Phone number must contain only numbers") ;
+        i++; 
+    }
+
+    else if(x3!=""&&x3<999999999||x3>10000000000)
+    {
+        y3.innerHTML="Phone number should be 10 digits only ";
+        document.forms["shaastra"]["phno"].style.borderColor="red";
+        y3.style.color="red";
+        alert("Phone number should be 10 digits only ") ;
+        i++;
+    }
+    else
+    {
+     reset_fn('d1' , 'phno') ;
+     }
+}
+
+function email_fun(argument) {
+
+    x4=document.forms["shaastra"]["eml"].value;
+    y4=document.getElementById("c1");
+    var format = /.+@.+/ ;
+   
+    if ( !x4.match(format) )
+    {
+        y4.innerHTML="Not a valid e-mail address ";
+        document.forms["shaastra"]["eml"].style.borderColor="red";
+        y4.style.color="red";
+        alert("Not a valid e-mail address ") ;
+        i++;
+    }
+    else
+    {
+     reset_fn('c1' , 'eml') ;
+     }
+}
+
+
+function selecting(arg)
+{
+var opt = document.getElementById(arg).selectedIndex ;
+if (opt== 0)
+   {
+    alert("An Event should be selected") ;
+    i++ ;
+   }
+}
+
+function checking(arg) {
+  var c = document.getElementById(arg).checked ; 
+  if (c==false) {
+    alert('You must agree to the following terms and conditions') ;
+    i++ ; 
+  }
+}
+
+
+
+
+function reset_fn(arg1,arg2) {
+   document.getElementById(arg1).innerHTML="" ;
+   document.forms["shaastra"][arg2].style.borderColor="black";
+}
+
+
+function submitting_fn()
+{
+  i=0 ; 
+    fname_fun('fn') ;
+    lname_fun('ln') ;
+    email_fun('em') ;
+    phone_fun('pn') ;
+    selecting('selection') ;
+    checking('checkbox') ;
+
+if (i==0) {
+  alert("Successfully Submitted ! ") ;
+}
+
+}
+
+function resetting_fn()
+
+{
+            location.reload() ;
+}
+
+</script>
+
+</body>
+</html>
