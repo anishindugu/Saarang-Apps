@@ -26,24 +26,21 @@ label {
     color: #056C34 ; 
     font-size: 15px ; 
     text-align: center; 
-
  }
-
+ 
 .form-control { 
     color: #1C036F ; 
     text-align: center; 
  }
+ 
 .form-group { 
     text-align: center; 
  } 
 
-
-
 </style>
-
 </head>
-<body>
 
+<body>
 <div class="container">
   <h1 style=" text-align: center; text-shadow: 1px 1px #B0ACAB ; padding: 10px 5px 50px ; color: #098BCD "><i>Register Here</i></h1>
   <form class="form-horizontal" name="shaastra" >
@@ -105,11 +102,9 @@ label {
   </form>
 </div>
 
-
 <script type="text/javascript">
   
-
-
+// Function checking for validation of first name
 function fname_fun(argument) {
       x1=document.forms["shaastra"]["fname"].value;
       y1=document.getElementById("a1");
@@ -122,13 +117,12 @@ function fname_fun(argument) {
         alert("Firstname must be provided") ;
         i++ ; 
     }
-    else
-    {
+    else {
      reset_fn('a1' , 'fname') ;
      }
 }
 
-
+// Function checking for validation of last name
 function lname_fun(argument) {
     x2=document.forms["shaastra"]["lname"].value;
         y2=document.getElementById("b1");
@@ -141,16 +135,13 @@ function lname_fun(argument) {
         alert("Lastname must be provided") ;
         i++;
     }
-else
-    {
-     reset_fn('b1' , 'lname') ;
+else {
+     	reset_fn('b1' , 'lname') ;
      }    
-
 }
 
-
+// Function checking for validation of phone number
 function phone_fun(argument) {
-
       x3=document.forms["shaastra"]["phno"].value;
           y3=document.getElementById("d1");
 
@@ -180,14 +171,13 @@ function phone_fun(argument) {
         alert("Phone number should be 10 digits only ") ;
         i++;
     }
-    else
-    {
-     reset_fn('d1' , 'phno') ;
+    else {
+    	 reset_fn('d1' , 'phno') ;
      }
 }
 
+// Function checking for validation of email
 function email_fun(argument) {
-
     x4=document.forms["shaastra"]["eml"].value;
     y4=document.getElementById("c1");
     var format = /.+@.+/ ;
@@ -200,16 +190,15 @@ function email_fun(argument) {
         alert("Not a valid e-mail address ") ;
         i++;
     }
-    else
-    {
-     reset_fn('c1' , 'eml') ;
+    else {
+    	 reset_fn('c1' , 'eml') ;
      }
 }
 
-
-function selecting(arg)
-{
+// Function checking for validation of selecting an event
+function selecting(arg){
 var opt = document.getElementById(arg).selectedIndex ;
+
 if (opt== 0)
    {
     alert("An Event should be selected") ;
@@ -217,41 +206,40 @@ if (opt== 0)
    }
 }
 
+// Function checking for validation of checkbox
 function checking(arg) {
   var c = document.getElementById(arg).checked ; 
+  
   if (c==false) {
     alert('You must agree to the following terms and conditions') ;
     i++ ; 
   }
 }
 
-
-
-
+// Function that resets the input box when there is no error
 function reset_fn(arg1,arg2) {
    document.getElementById(arg1).innerHTML="" ;
    document.forms["shaastra"][arg2].style.borderColor="black";
 }
 
-
+// Function that checks the validation of the form
 function submitting_fn()
 {
   i=0 ; 
-    fname_fun('fn') ;
-    lname_fun('ln') ;
-    email_fun('em') ;
-    phone_fun('pn') ;
-    selecting('selection') ;
-    checking('checkbox') ;
+	    fname_fun('fn') ;
+	    lname_fun('ln') ;
+	    email_fun('em') ;
+	    phone_fun('pn') ;
+	    selecting('selection') ;
+	    checking('checkbox') ;
 
-if (i==0) {
-  alert("Successfully Submitted ! ") ;
+	if (i==0) {
+	  alert("Successfully Submitted ! ") ;
+	}
 }
 
-}
-
+// Function that reloads the page
 function resetting_fn()
-
 {
             location.reload() ;
 }
