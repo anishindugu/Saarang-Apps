@@ -155,6 +155,8 @@
 </div>
 
 <script>
+
+        // Functions that control the animation
         function pause_merc() {
             document.getElementById("merc-orbit").style.webkitAnimationPlayState="paused";
         }
