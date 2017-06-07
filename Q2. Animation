@@ -111,8 +111,8 @@
                   <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" >
                   <i>Mercury <span class="caret"></span> </i> </button>
                   <ul class="dropdown-menu" role="menu" >
-                        <li onclick="restart_merc()" >Start</li>
-                        <li onclick="pause_merc()" > Stop</li>
+                        <li onclick="restart('merc-orbit')" >Start</li>
+                        <li onclick="pause('merc-orbit')" > Stop</li>
                   </ul>
             </div>
 
@@ -120,8 +120,8 @@
                   <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" >
                   <i>Venus <span class="caret"></span> </i> </button>
                   <ul class="dropdown-menu" role="menu" >
-                        <li onclick="restart_venus()" >Start</li>
-                        <li onclick="pause_venus()" > Stop</li>
+                        <li onclick="restart('venus-orbit')" >Start</li>
+                        <li onclick="pause('venus-orbit')" > Stop</li>
                   </ul>
             </div>
 
@@ -129,8 +129,8 @@
                   <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" >
                   <i>Earth <span class="caret"></span> </i> </button>
                   <ul class="dropdown-menu" role="menu" >
-                        <li onclick="restart_earth()" >Start</li>
-                        <li onclick="pause_earth()" > Stop</li>
+                        <li onclick="restart('earth-orbit')" >Start</li>
+                        <li onclick="pause('earth-orbit')" > Stop</li>
                   </ul>
             </div>
 
@@ -157,23 +157,11 @@
 <script>
 
         // Functions that control the animation
-        function pause_merc() {
-            document.getElementById("merc-orbit").style.webkitAnimationPlayState="paused";
+        function pause(argument) {
+            document.getElementById(argument).style.webkitAnimationPlayState="paused";
         }
-        function restart_merc() {
-            document.getElementById("merc-orbit").style.webkitAnimationPlayState="running";
-        }
-        function pause_venus() {
-            document.getElementById("venus-orbit").style.webkitAnimationPlayState="paused";
-        }
-        function restart_venus() {
-            document.getElementById("venus-orbit").style.webkitAnimationPlayState="running";
-        }
-        function pause_earth() {
-            document.getElementById("earth-orbit").style.webkitAnimationPlayState="paused";
-        }
-        function restart_earth() {
-            document.getElementById("earth-orbit").style.webkitAnimationPlayState="running";
+        function restart(argument) {
+            document.getElementById(argument).style.webkitAnimationPlayState="running";
         }
         function reset(){
             location.reload() ;
